@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Minha Watchlist</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="watchlist.js"></script>
+  <script type="module" src="script.js"></script>
+</head>
+
+<header>
+  <div class="header-container">
+    <div class="logo"><span>AnimeZone</span></div>
+
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="index.html">Animes</a></li>
+        <li class="dropdown">
+          <a href="#">Gêneros ▾</a>
+          <ul class="submenu-generos"></ul>
+        </li>
+        <li><a href="#">Temporadas</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-direito" style="position: relative;">
+      <input type="text" placeholder="Escreva o nome do anime..." id="search">
+      <div id="search-results" class="search-dropdown"></div>
+      <a href="login.html" class="login-btn">Entrar</a>
+      <a href="register.html" class="register-btn">Cadastrar</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="watchlist-section">
+    <div id="perfil-usuario" class="perfil-container">
+      <img id="perfil-avatar" class="perfil-avatar" src="default-avatar.png" alt="Avatar do usuário" />
+      <div class="perfil-info">
+        <h2 id="perfil-nome">Usuário</h2>
+        <p>📩 Email: <span id="perfil-email">não informado</span></p>
+        <p>⭐ Total de animes na Watchlist: <span id="perfil-total">0</span></p>
+        <p>📅 <span id="perfil-desde">Membro desde...</span></p>
+      </div>
+    </div>
+    <div class="anime-list" id="watchlist-list"></div>
+  </section>
+</main>
+</body>
+
+</html>

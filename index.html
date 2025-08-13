@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AnimeZone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="anime-carrossel.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="resultado.js"></script>
+</head>
+
+<body>
+  <div id="overlay-loading" class="hidden">
+    <div class="spinner"></div>
+    <p>Carregando conteúdo...</p>
+  </div>
+
+  <header>
+    <div class="header-container">
+      <div class="logo"><span>AnimeZone</span></div>
+
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="index.html">Animes</a></li>
+          <li class="dropdown">
+            <a href="#" id="btn-generos">Gêneros ▾</a>
+            <ul class="submenu-generos"></ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="menu-direito" style="position: relative;">
+        <input type="text" placeholder="Escreva o nome do anime..." id="search">
+        <div id="search-results" class="search-dropdown"></div>
+        <a href="login.html" class="login-btn">Entrar</a>
+        <a href="register.html" class="register-btn">Cadastrar</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="splide banner-carousel" aria-label="Banner Anime">
+      <div class="splide__track">
+        <ul class="splide__list"></ul>
+      </div>
+    </section>
+
+    <section class="genero-selecionado">
+      <h2 id="titulo-genero"></h2>
+      <div class="anime-list" id="genero-list"></div>
+    </section>
+
+
+    <section class="resultados"></section>
+
+    <section id="mais-vistos" class="splide splide-carrossel" aria-label="Mais Vistos">
+      <h2>🔥 Animes Mais Vistos</h2>
+      <div class="splide__track">
+        <ul class="splide__list" id="mais-vistos-list"></ul>
+      </div>
+    </section>
+
+    <section id="top-avaliados" class="splide splide-carrossel" aria-label="Top Avaliados">
+      <h2>⭐ Top Avaliados</h2>
+      <div class="splide__track">
+        <ul class="splide__list" id="top-avaliados-list"></ul>
+      </div>
+    </section>
+
+    <section id="temporada-atual" class="splide splide-carrossel" aria-label="Temporada Atual">
+      <h2>🕓 Temporada Atual</h2>
+      <div class="splide__track">
+        <ul class="splide__list" id="temporada-atual-list"></ul>
+      </div>
+    </section>
+
+  </main>
+</body>
+
+</html>

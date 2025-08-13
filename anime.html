@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Anime</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="anime.js"></script>
+  <script type="module" src="script.js"></script>
+</head>
+<div id="overlay-loading" class="hidden">
+  <div class="spinner"></div>
+  <p>Carregando conteúdo...</p>
+</div>
+
+<body class="page-anime">
+  <header>
+    <div class="header-container">
+      <div class="logo"><span>AnimeZone</span></div>
+
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="index.html">Animes</a></li>
+          <li class="dropdown">
+            <a href="#">Gêneros ▾</a>
+            <ul class="submenu-generos"></ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="menu-direito" style="position: relative;">
+        <input type="text" placeholder="Escreva o nome do anime..." id="search">
+        <div id="search-results" class="search-dropdown"></div>
+        <a href="login.html" class="login-btn">Entrar</a>
+        <a href="register.html" class="register-btn">Cadastrar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="anime-info">
+      <img id="anime-img" src="" alt="Capa do anime">
+      <h2 id="anime-title"></h2>
+      <p id="anime-sinopse" class="sinopse"></p>
+    </section>
+
+    <section class="episodios">
+      <h3>🎬 Episódios</h3>
+
+      <ul id="lista-episodios" class="episodios-lista"></ul>
+    </section>
+
+    <section class="comentarios">
+      <h3>💬 Comentários</h3>
+
+      <form id="comentario-form">
+        <div class="form-com-avatar">
+          <img id="comentario-avatar" src="" alt="Avatar do usuário">
+          <textarea id="mensagem" placeholder="Seu comentário" required></textarea>
+        </div>
+      </form>
+
+      <div id="lista-comentarios"></div>
+    </section>
+
+
+  </main>
+</body>
+
+</html>

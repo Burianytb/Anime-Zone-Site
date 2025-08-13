@@ -1,0 +1,1349 @@
+/* ========== RESET E BASE ========== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000e1a;
+  color: #d0f0e0;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.menu-nav+.watchlist-wrapper {
+  min-height: 600px;
+}
+
+/* Corrige problemas de box-sizing em todos os elementos */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* ========== HEADER ========== */
+header {
+  background-color: #001f2d;
+  padding: 20px 35px;
+  text-align: center;
+  box-shadow: 0 0 12px #00ff90;
+}
+
+.header-container,
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo,
+.site-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #00ff90;
+  text-decoration: none;
+  text-shadow: 0 0 8px #00ff90;
+}
+
+.logo img {
+  height: 32px;
+}
+
+
+/* ========== NAVEGAÇÃO ========== */
+.menu-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-nav ul li a {
+  color: #d0f0e0;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu-nav ul li a:hover {
+  background-color: #00ff90;
+  color: #000e1a;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+/* ========== SUBMENU DE GÊNEROS ========== */
+.dropdown {
+  position: relative;
+}
+
+.submenu-generos {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #001f2d;
+  width: 180px;
+  flex-direction: column;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid #00ff90;
+  box-shadow: 0 0 12px rgba(0, 255, 144, 0.3);
+  border-radius: 6px;
+}
+
+.dropdown.open .submenu-generos {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown:hover .submenu-generos {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.submenu-generos li a {
+  color: #d0f0e0;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.submenu-generos li a:hover {
+  background-color: #00ff90;
+  color: #000e1a;
+  box-shadow: 0 0 8px #00ff90;
+}
+
+/* ========== CAMPO DE BUSCA E BOTÕES ========== */
+.menu-direito {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-direito input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #06232f;
+  color: #ffffff;
+  width: 200px;
+  box-shadow: inset 0 0 6px #00ff90;
+  transition: box-shadow 0.3s ease;
+}
+
+.menu-direito input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00ff90;
+}
+
+/* Botões de login e registro */
+.login-btn,
+.register-btn {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: #001f2d;
+  border: 1px solid #00ff90;
+}
+
+.login-btn:hover {
+  background-color: #00ff90;
+  color: #001f2d;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+.register-btn:hover {
+  background-color: #ff477e;
+  color: #000e1a;
+  box-shadow: 0 0 10px #ff477e;
+  border: 1px solid #ff477e;
+}
+
+
+/* ========== LISTA DE ANIMES ========== */
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+/* ========== CARD INDIVIDUAL ========== */
+.anime-card {
+  width: 180px;
+  background-color: #001f2d;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #d0f0e0;
+  box-shadow: 0 0 8px rgba(0, 255, 144, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00ff90;
+  background-color: #002d3f;
+}
+
+/* ========== IMAGEM DO CARD ========== */
+.anime-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 144, 0.3);
+}
+
+.anime-card h3 {
+  font-size: 1rem;
+  margin: 10px 0 5px;
+  color: #00ff90;
+}
+
+.anime-card p {
+  font-size: 0.9rem;
+  color: #a4f0c4;
+}
+
+.anime-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* ========== BOTÃO DE WATCHLIST ========== */
+.btn-watchlist-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #00ff90;
+  color: #001f2d;
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px #00ff90;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-watchlist-icon:hover {
+  background-color: #00cc70;
+  transform: scale(1.1);
+}
+
+/* ========== BOTÃO REMOVER ========== */
+.remove-btn {
+  background-color: #ff477e;
+  color: #001f2d;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 0 8px #ff477e;
+  font-weight: bold;
+}
+
+.remove-btn:hover {
+  background-color: #cc3562;
+  box-shadow: 0 0 12px #ff477e;
+}
+
+/* ========== ANIME PESQUISA ========== */
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #001f2d;
+  width: 100%;
+  border: 1px solid #00ff90;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 255, 144, 0.2);
+  padding: 10px;
+  display: none;
+  z-index: 1000;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  color: #d0f0e0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.search-item:hover {
+  background-color: #002d3f;
+}
+
+
+.search-item img {
+  width: 48px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.3);
+}
+
+.search-item .rating {
+  font-size: 0.9rem;
+  color: gold;
+}
+
+.ver-mais {
+  justify-content: center;
+  font-weight: bold;
+  color: #00ff90;
+}
+
+#bandeja-sugestoes {
+  display: none;
+  position: absolute;
+  background-color: #001f2d;
+  border-radius: 8px;
+  z-index: 10;
+  width: 100%;
+}
+
+/* ========== TÍTULO DA SEÇÃO ========== */
+.temporada {
+  margin: 10px 0;
+  padding: 8px 16px;
+  background-color: #001f2d;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.15);
+  border: 1px solid rgba(0, 255, 144, 0.3);
+}
+
+.temporada:hover {
+  box-shadow: 0 0 12px #00ff90;
+}
+
+.temporada-toggle:hover {
+  color: #00cc70;
+}
+
+.temporada ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.temporada li {
+  background-color: #001f2d;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.temporada li:hover {
+  background-color: #002d3f;
+  box-shadow: 0 0 12px #00ff90;
+}
+
+.temporada li img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+
+}
+
+/* ========== LISTA DE EPISÓDIOS ========== */
+#lista-episodios,
+.episodios-lista {
+  list-style: none;
+  padding-left: 0;
+  color: #d0f0e0;
+}
+
+#lista-episodios li,
+.episodios-lista li {
+  background-color: #001f2d;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.2);
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+#lista-episodios li:hover,
+.episodios-lista li:hover {
+  background-color: #002d3f;
+  box-shadow: 0 0 10px #00ff90;
+}
+
+#lista-episodios li img,
+.episodios-lista li img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#lista-episodios li span,
+.episodios-lista li span {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.temporada-toggle {
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+/* ========== TÍTULO DA SEÇÃO DE COMENTÁRIOS ========== */
+.comentarios h3 {
+  margin-top: 50px;
+  color: #00ff90;
+  font-size: 1.3rem;
+  text-shadow: 0 0 5px #00ff90;
+}
+
+#comentario-input-container img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 6px #00ff90;
+}
+
+/* ========== FORMULÁRIO DE COMENTÁRIOS ========== */
+#comentario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Caixa de comentário alinhada com avatar */
+#comentario-form .form-com-avatar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+#comentario-form .form-com-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 6px #00ff90;
+}
+
+/* Textarea mais compacto */
+#comentario-form textarea {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #001f2d;
+  color: #d0f0e0;
+  box-shadow: inset 0 0 6px #00ff90;
+  transition: box-shadow 0.3s ease;
+  resize: vertical;
+  min-height: 60px;
+  font-size: 0.95rem;
+}
+
+#comentario-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #00ff90;
+}
+
+/* Botão */
+#comentario-form button {
+  align-self: flex-end;
+  padding: 10px 16px;
+  background-color: #00ff90;
+  color: #001f2d;
+  border: 1px solid #00ff90;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00ff90;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#comentario-form button:hover {
+  background-color: #00cc70;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00ff90;
+}
+
+/* ========== COMENTÁRIOS ========== */
+#lista-comentarios .comentario {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  background-color: #001f2d;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.2);
+  color: #d0f0e0;
+}
+
+#lista-comentarios .comentario img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 6px #00ff90;
+  flex-shrink: 0;
+}
+
+#lista-comentarios .comentario .texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#lista-comentarios .comentario .texto strong {
+  color: #39ff14;
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}
+
+#lista-comentarios .comentario .texto p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ========== RESPOSTAS A COMENTÁRIOS ========== */
+
+.comentario-resposta {
+  margin-left: 40px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  background-color: #001f2d;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.15);
+  color: #d0f0e0;
+}
+
+/* Avatar da resposta — menor que o principal */
+.comentario-resposta img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 6px #00ff90;
+  flex-shrink: 0;
+}
+
+/* Texto da resposta */
+.comentario-resposta div {
+  flex: 1;
+}
+
+.comentario-resposta strong {
+  color: #39ff14;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.comentario-resposta p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Campo de digitação de resposta */
+.resposta-area {
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.resposta-area textarea {
+  width: 100%;
+  background-color: #001f2d;
+  color: #d0f0e0;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid #00ff90;
+  box-shadow: inset 0 0 6px #00ff90;
+  resize: vertical;
+  font-size: 0.95rem;
+}
+
+.comentario-acoes button {
+  background-color: #1e2a38;
+  border: none;
+  color: #ddd;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.comentario-acoes button:hover {
+  background-color: #2f3f56;
+  transform: scale(1.05);
+}
+
+.btn-curtir.curtido {
+  background-color: #2e8b57;
+  color: #fff;
+}
+
+.btn-responder:focus {
+  outline: 2px solid #4fc3f7;
+}
+
+
+
+/* ========== BANNER DE DESTAQUE ========== */
+/* Espaçamento externo do carrossel */
+.banner-carousel {
+  margin: 40px 20px;
+}
+
+/* Slide do banner com imagem de fundo e animação */
+.banner-slide {
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: slideMotion 12s ease-in-out infinite alternate;
+}
+
+/* Animação sutil de movimento vertical na imagem */
+@keyframes slideMotion {
+  0% {
+    background-position: center;
+  }
+
+  100% {
+    background-position: top;
+  }
+}
+
+/* Overlay escuro com conteúdo centralizado */
+.banner-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: center;
+  animation: fadeInOverlay 1s ease forwards;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animação de entrada suave */
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título do banner */
+.banner-overlay h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Nota ou descrição */
+.banner-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Botão de ação */
+.banner-btn {
+  background: #e50914;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+/* Hover com impacto visual */
+.banner-btn:hover {
+  background: #ff2a2a;
+  box-shadow: 0 0 12px rgba(255, 42, 42, 0.5);
+  transform: scale(1.05);
+}
+
+
+/* ========== SEÇÕES GERAIS ========== */
+section {
+  margin-top: 40px;
+}
+
+h2 {
+  margin-bottom: 16px;
+}
+
+.card-anime {
+  height: 420px;
+  width: 180px;
+  background-color: #001f2d;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #d0f0e0;
+  box-shadow: 0 0 8px rgba(0, 255, 144, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform;
+  z-index: 1;
+}
+
+.card-anime:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 16px #00ff90;
+  background-color: #002d3f;
+  z-index: 99;
+}
+
+/* Garante que o carrossel não corte o efeito */
+.splide__slide {
+  overflow: visible !important;
+  z-index: 1;
+}
+
+.splide__track {
+  overflow: visible !important;
+}
+
+
+.card-anime img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 144, 0.3);
+  margin-bottom: 10px;
+}
+
+.card-anime h3 {
+  font-size: 1rem;
+  margin: 6px 0;
+  color: #00ff90;
+
+}
+
+.card-anime a {
+  text-decoration: none;
+}
+
+
+.card-anime .rating {
+  font-size: 0.9rem;
+  color: gold;
+}
+
+.card-anime .descricao {
+  font-size: 0.85rem;
+  color: #a4f0c4;
+}
+
+.splide-carrossel {
+  padding: 0 12px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.btn-sinopse-pt {
+  background-color: #003f5c;
+  color: #00ff90;
+  border: 1px solid #00ff90;
+  padding: 0.4rem 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.btn-sinopse-pt:hover {
+  background-color: #005f7a;
+  transform: scale(1.05);
+}
+
+.card-anime {
+  cursor: pointer;
+}
+
+
+.splide-carrossel .splide__list {
+  display: flex;
+  gap: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.splide-carrossel .splide__slide {
+  flex: 0 0 calc(100% / 10);
+  max-width: calc(100% / 10);
+  min-width: 160px;
+}
+
+
+.splide-carrossel .splide__track {
+  width: 100%;
+  padding: 0;
+  /* zero padding */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.btn-watchlist {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-watchlist:hover {
+  background-color: #444;
+  border-color: #666;
+}
+
+.btn-watchlist.ativo,
+.btn-watchlist:disabled {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+  cursor: default;
+}
+
+
+/* Botão Watchlist fixado no topo direito */
+.card-anime .btn-watchlist-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #00ff90;
+  color: #001f2d;
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px #00ff90;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.card-anime .btn-watchlist-icon:hover {
+  background-color: #00cc70;
+  transform: scale(1.1);
+}
+
+/* Ajustes em seções específicas */
+#top-avaliados .splide__list,
+#temporada-atual .splide__list {
+  gap: 20px;
+}
+
+.anime-info {
+  padding: 60px 20px;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* imagem ainda com destaque */
+#anime-img {
+  width: 350px;
+  max-width: 100%;
+  box-shadow: 0 0 25px rgba(0, 255, 144, 0.4);
+  border-radius: 12px;
+  margin: 0 auto 25px auto;
+  display: block;
+}
+
+/* título centralizado */
+#anime-title {
+  font-size: 2.2rem;
+  color: #00ff90;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px #00ff90;
+}
+
+/* sinopse livre e alinhada à esquerda */
+#anime-sinopse {
+  font-size: 1.1rem;
+  color: #c7ffe0;
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  line-height: 1.7;
+  padding: 0 10px;
+}
+
+.splide__list {
+  display: flex;
+  gap: 0px !important;
+  padding: 0;
+  margin: 0;
+}
+
+.perfil-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  color: #f1f1f1;
+}
+
+.perfil-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4fc3f7;
+}
+
+.perfil-info h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #4fc3f7;
+}
+
+.perfil-info p {
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+/* ========== LOADING ========== */
+
+body.loading {
+  overflow: hidden;
+}
+
+#overlay-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.3s ease;
+}
+
+#overlay-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Spinner animado */
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border: 5px solid #fff;
+  border-top-color: #00bfff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ajuste para alinhar spinner + texto */
+#overlay-loading {
+  flex-direction: row;
+  /* alinha spinner e texto lado a lado */
+  gap: 10px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    padding: 8px 10px;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 8px 10px;
+  }
+
+  .logo {
+    margin-bottom: 4px;
+  }
+
+
+
+  nav.menu-nav ul {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* BANNER */
+  .banner {
+    height: auto;
+    width: 100%;
+    padding: 20px 10px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .banner h1 {
+    font-size: 1.8rem;
+  }
+
+  /* CARROSSEL */
+  .splide__track {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .splide-carrossel {
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0 10px;
+    /* dá um pequeno espaçamento nas laterais */
+    box-sizing: border-box;
+    /* garante que padding não estoure largura */
+  }
+
+
+
+  .splide__slide {
+    padding: 0 !important;
+    margin: 0 !important;
+    scroll-snap-align: start;
+  }
+
+  /* === CARD DE ANIME === */
+  .card-anime {
+    flex: 0 0 auto;
+    width: 140px;
+    max-width: 160px;
+    height: auto;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #001f2d;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #d0f0e0;
+    box-shadow: 0 0 8px rgba(0, 255, 144, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-anime img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .card-anime h3 {
+    font-size: 1rem;
+    height: 2.2em;
+    overflow: hidden;
+  }
+
+  .card-anime .descricao {
+    font-size: 0.8rem;
+    height: 2.8em;
+    overflow: hidden;
+  }
+
+  .card-anime .conteudo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-anime .sinopse {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  #mais-vistos {
+    margin-bottom: 40px;
+  }
+
+  #top-avaliados {
+    margin-bottom: 40px;
+  }
+
+  #temporada-atual {
+    margin-bottom: 40px;
+  }
+
+
+  /* DETALHES DE ANIME */
+  #anime-img {
+    width: 100%;
+  }
+
+  #anime-title {
+    font-size: 1.7rem;
+  }
+
+  #anime-sinopse {
+    font-size: 0.95rem;
+    padding: 0 5px;
+  }
+
+
+}
+
+/* === CELULARES PEQUENOS (até 480px) === */
+@media (max-width: 480px) {
+
+  /* HEADER */
+  header {
+    padding: 10px 8px;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 8px 10px;
+  }
+
+  .logo {
+    margin-bottom: 4px;
+  }
+
+  nav.menu-nav ul {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.menu-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 2px 6px;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .submenu-generos {
+    position: absolute !important;
+  }
+
+  .menu-direito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-direito input#search {
+    margin: 0;
+    padding: 6px 10px;
+    width: 95%;
+    font-size: 0.95rem;
+  }
+
+  #search-results {
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1px solid #00ffcc;
+    border-radius: 6px;
+    background: #011c27;
+    color: #fff;
+    box-shadow: 0 2px 8px rgb(0 255 204 / 0.2);
+    margin-top: 4px;
+    width: 95%;
+  }
+
+  .menu-direito .login-btn,
+  .menu-direito .register-btn {
+    margin: 0;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .menu-direito .login-btn {
+    background-color: #007bff;
+  }
+
+  .menu-direito .login-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .menu-direito .register-btn {
+    background-color: #28a745;
+  }
+
+  .menu-direito .register-btn:hover {
+    background-color: #1e7e34;
+  }
+
+  /* BANNER */
+  .banner {
+    height: auto;
+    width: 100%;
+    padding: 20px 10px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .banner h1 {
+    font-size: 1.6rem;
+  }
+
+  /* === CARD DE ANIME - AJUSTES EXTRAS SE PRECISAR MAIS PEQUENO === */
+  .card-anime {
+    width: 135px;
+  }
+
+  .card-anime h3 {
+    font-size: 0.95rem;
+  }
+
+  .card-anime .descricao {
+    font-size: 0.75rem;
+  }
+
+  .card-anime .sinopse {
+    font-size: 11px;
+  }
+
+  /* DETALHES DE ANIME */
+  #anime-img {
+    width: 100%;
+  }
+
+  #anime-title {
+    font-size: 1.5rem;
+  }
+
+  #anime-sinopse {
+    font-size: 0.9rem;
+    padding: 0 5px;
+  }
+}
